@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import { toDate, format } from 'date-fns-tz'
+import { parseISO, toDate, format } from 'date-fns-tz'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import {faSkullCrossbones} from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
@@ -120,7 +120,7 @@ render(){
           {' '}
           <span className='date_made'>
             {
-format(toDate(date_made), 'yyyy-MM-dd HH:mm aaaaa\'m\' z', { timeZone : 'America/Los_Angeles' })}
+format(toDate(date_made), 'EEEE MM/dd/yyyy h:mm aaaaa\'m\' z', { timeZone : 'America/Los_Angeles' })}
           </span>
         </div>
       </div>
