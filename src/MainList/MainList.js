@@ -3,21 +3,40 @@ import { Link } from 'react-router-dom'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Item from '../Item/Item'
 import SummaryList from '../SummaryList/SummaryList'
-// import CircleButton from '../CircleButton/CircleButton'
-// import './NoteListMain.css'
+import AddItem from '../AddItem/AddItem';
+import DeleteList from '../DeleteList/DeleteList';
+import AppButton from '../AppButton/AppButton'
+import './MainList.css'
 import ApiContext from '../ApiContext'
-import { getItemsForList, findList, getListName} from '../app-helpers'
+import { countItemsForList, getItemsForList, findList, getListName} from '../app-helpers'
 import ApiError from '../ApiError'
 import PropTypes from 'prop-types';
 
+
 export default class MainList extends React.Component {
-  
+    state = {
+        addingItem: false,
+        deletingList: false,
+    };
 
   static defaultProps = {
     match: {
       params: {}
     }
   }
+
+  handleAddItemButton = e => {
+     
+    this.setState({
+        addingItem: !this.state.addingItem
+    })
+}
+handleDeleteListButton = e =>{
+    this.setState({
+        deletingList: !this.state.deletingList
+    })
+}
+
  
   static contextType = ApiContext
 render(){
@@ -34,15 +53,45 @@ const listName = currentList.list_name
 console.log('listname: ', currentList.list_name)
   const itemsForList = getItemsForList(items, listId)
   const listEmpty = itemsForList.length === 0
-     ? <li className="empty-list-message">List empty</li>
+     ? <li className="empty-list-message">Add Some Items!</li>
       : null
+const addItemButtonText = this.state.addingItem
+? '-'
+: '+'
+
+const howManyItems = countItemsForList(items, listId)
+
+const addItemForm = this.state.addingItem
+? <AddItem listId={currentList.id}
+handleAddItemButton={this.handleAddItemButton}
+/>
+: null
+
 
   return (
     <>
-   <ApiError>
+     <Link to="/"><h3>Back to my Lists</h3></Link>
+   <ApiError >
     <section className='MainList'>
   <h2>{listName}</h2>
+ You've got {howManyItems} {howManyItems===1 ?'item':'items'} in this BudGit
+  <div className='MainList__button-container'>
+  <AppButton
+type='button'
+tag={Link}
+to={`/delete-list/${listId}`}
+
+className='MainList__delete-list-button'
+>
+  {/* <FontAwesomeIcon icon='plus' /> */}
+
+Delete BudGit
+
+</AppButton>
+      </div>
+     
       <ul>
+        
        {listEmpty}
       {itemsForList.map(item =>
        
@@ -63,19 +112,24 @@ console.log('listname: ', currentList.list_name)
 
         )}
       </ul>
-      {/* <div className='MainList__button-container'>
-        <CircleButton
-          tag={Link}
-          to='/add-note'
+      {addItemForm}
+      <div className='MainList__button-container'>
+        <AppButton
           type='button'
-          className='NoteListMain__add-note-button'
+          onClick={this.handleAddItemButton}
+        //   component={AddItem}
+          
+          className='MainList__add-item-button'
         >
-          <FontAwesomeIcon icon='plus' />
+          {/* <FontAwesomeIcon icon='plus' /> */}
+          
+          {addItemButtonText}
           <br />
-          Note
-        </CircleButton>
-      </div> */}
-      <article className="SummaryList">
+          Item
+          <br />
+        </AppButton>
+      </div>
+      <article className="SummaryList-Main">
         <SummaryList 
         listId = {listId}
         />

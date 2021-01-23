@@ -1,5 +1,6 @@
 import React from 'react';
 import ApiContext from '../ApiContext';
+import './SummaryList.css'
 import {countTotalForList, getItemsForList, findList} from '../app-helpers'
 export default class SummaryList extends React.Component {
 
@@ -13,10 +14,10 @@ const summaryTotal = countTotalForList(items, listId)
 console.log('all items in list', getItemsForList(items, listId))
 const listItems = getItemsForList(items, listId).filter(item => item.calc)
 return(
-<div >
+<div className="SummaryList">
 <h3> Summary </h3>
 <ul>
-Items in your BudGit: {listItems.map(item =>
+Items in your BugGit Summary: {listItems.map(item =>
        <li key={item.id}>
            {item.item_name}
 

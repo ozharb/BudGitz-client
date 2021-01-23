@@ -1,0 +1,24 @@
+
+.AppButton {
+    background-color:black;
+    border-radius: 20px;
+    border: 3;
+    color: white;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    height: 40px;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    width: 60px;
+  }
+  
+  a.AppButton {
+    padding: 16px 8px 8px;
+  }
+  
+  .AppButton:hover {
+    cursor: pointer;
+  }
+  

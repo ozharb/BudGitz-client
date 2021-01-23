@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {Route, Link} from 'react-router-dom';
 import AllLists from '../AllLists/AllLists';
 import MainList from '../MainList/MainList';
+import DeleteList from '../DeleteList/DeleteList';
+import AddList from '../AddList/AddList';
 import './App.css';
 import ApiContext from '../ApiContext';
 import config from '../config'
@@ -72,6 +74,12 @@ class App extends Component {
                 item.id !== parseInt(itemId))
         })
     }
+    handleDeleteList= listId => {
+      this.setState({
+          lists: this.state.lists.filter(list=>
+              list.id !== parseInt(listId))
+      })
+  }
 
     renderMainRoutes() {
         return (
@@ -89,16 +97,20 @@ class App extends Component {
               path='/lists/:listId'
               component={MainList}
             />
+             <Route
+              path='/delete-list/:listId'
+              component={DeleteList}
+            />
             {/* <Route
               path='/item/:itemId'
               component={ExpandItem}
             /> */}
-            {/* <Route
-              path='/add-folder'
+            <Route
+              path='/add-list'
               component={AddList}
             />
-            <Route
-              path='/add-note'
+            {/* <Route
+              path='/add-item'
               component={AddItem}
             /> */}
           </>
@@ -115,8 +127,8 @@ class App extends Component {
             addList: this.handleAddList,
             addItem: this.handleAddItem,
             deleteItem: this.handleDeleteItem,
-            handleUpdate:this.handleUpdate
-          
+            handleUpdate:this.handleUpdate,
+            deleteList: this.handleDeleteList
         };
         return (
             <ApiContext.Provider value = {value}>

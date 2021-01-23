@@ -6,6 +6,7 @@ const ApiContext = React.createContext({
     addList: () => {},
   addItem: () => {},
   deleteItem: () => {},
+  deleteList: () => {},
   handleUpdate: () => {},
 })
 

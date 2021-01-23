@@ -1,0 +1,12 @@
+.MainList__button-container {
+    max-width: 380px;
+    margin: 0 10px;
+  }
+  
+  .MainList__add-item-button {
+    margin: 0 auto 20px;
+  }
+  .MainList__add-item-button:hover {
+    background-color: black;
+    color: rgb(0, 255, 115);
+  }
