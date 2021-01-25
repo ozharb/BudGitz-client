@@ -3,6 +3,7 @@ import {Route, Link} from 'react-router-dom';
 import AllLists from '../AllLists/AllLists';
 import MainList from '../MainList/MainList';
 import DeleteList from '../DeleteList/DeleteList';
+import EditItem from '../EditItem/EditItem';
 import AddList from '../AddList/AddList';
 import './App.css';
 import ApiContext from '../ApiContext';
@@ -59,7 +60,7 @@ class App extends Component {
         })
     }
     handleUpdate = updatedItem =>{
-     
+     console.log('updateItem:',updatedItem)
       this.setState({
         items: this.state.items.map(i =>
           (i.id !== updatedItem.id) ? i : updatedItem
@@ -101,10 +102,10 @@ class App extends Component {
               path='/delete-list/:listId'
               component={DeleteList}
             />
-            {/* <Route
-              path='/item/:itemId'
-              component={ExpandItem}
-            /> */}
+            <Route
+              path='/edit/:itemId'
+              component={EditItem}
+            />
             <Route
               path='/add-list'
               component={AddList}

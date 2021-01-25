@@ -1,0 +1,30 @@
+.Item__expand-item-button{
+/* width: 15px;
+height: 5px;
+padding-bottom: 5px;
+padding-top: 10px;
+justify-content: center; */
+margin-bottom: 5px;
+
+}
+
+.Item-Header{
+    background-color: yellow;
+
+    display: flex;
+}
+h2{
+    margin: 0
+}
+.MainList__edit-item-button{
+    padding: 0 auto 20px;
+    background-color: green;
+    height: 10px;
+    width: 20px;
+}
+a.MainList__edit-item-button{
+    padding-top: 10px;
+    padding-right: 22px;
+    padding-left: 20px;
+    padding-bottom: 15px;
+  }

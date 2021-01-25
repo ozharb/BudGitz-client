@@ -1,19 +1,19 @@
 import React from 'react'
-import './AppButton.css'
+import './ExpandButton.css'
 
-export default function AppButton(props) {
+export default function ExpandButton(props) {
   const { tag, className, children, ...otherProps } = props
 
   return React.createElement(
     props.tag,
     {
-      className: ['AppButton', props.className].join(' '),
+      className: ['ExpandButton', props.className].join(' '),
       ...otherProps
     },
     props.children
   )
 }
 
-AppButton.defaultProps ={
+ExpandButton.defaultProps ={
   tag: 'a',
 }

@@ -7,12 +7,16 @@ import PropTypes from 'prop-types';
 import './Item.css'
 import ApiContext from '../ApiContext'
 import config from '../config'
+import AppButton from '../AppButton/AppButton'
+import ExpandButton from '../ExpandButton/ExpandButton'
 import { getItemsForList, findItem } from '../app-helpers'
 
 
 class Item extends Component {
   
-
+  state = {
+    expand: false,
+};
 
 static contextType = ApiContext;
 handleChangeCalc = e => {
@@ -45,7 +49,11 @@ handleChangeCalc = e => {
         })
   };
 
-  
+ handleItemExpand = e => {
+   this.setState({
+     expand: !this.state.expand
+   })
+ } 
 handleClickDelete = e => {
   e.preventDefault()
   const itemId = parseInt(this.props.id)
@@ -78,6 +86,26 @@ render(){
     const itemId = parseInt(this.props.id)
     const { items=[] } = this.context
     const item = findItem(items, itemId)
+    console.log('details:', item.content)
+    const expandItemButtonText = this.state.expand
+? `﹀` 
+:  `〉`
+const itemDetails= this.state.expand
+? <div className='Item__content'>
+{item.content.split(/\n \r|\n/).map((para, i) =>
+  <p key={i}>{para}</p>
+)}
+ <AppButton
+  tag={Link}
+  to={`/edit/${itemId}`}
+        //   component={AddItem}
+          className='MainList__edit-item-button'
+        >
+          {/* <FontAwesomeIcon icon='plus' /> */}
+          Edit
+        </AppButton>
+</div>
+:  null
     const calcButton = item.calc
     ? 'Remove'
      : 'Put Back'
@@ -85,16 +113,27 @@ render(){
   const { name, id, price, quantity, date_made, calc } = this.props
   return (
     <div className='Item'>
+      <header className='Item-Header'>
+            <ExpandButton
+          type='button'
+          onClick={this.handleItemExpand}
+          className='Item__expand-item-button'>
+          {expandItemButtonText}
+        </ExpandButton>
       <h2 className='Item__name'>
-        <Link to={`/item/${id}`}>
+        {/* <Link to={`/item/${id}`}> */}
           {name}
         {' | '}
           cost: ${price}
         {' | '}
           qty: {quantity}
-        </Link>
+        {/* </Link> */}
       </h2>
-
+    
+  
+        </header>
+  {itemDetails}
+  <br />
       <button className = 'item_calc'
       type='radio' name = 'calc' 
       onClick={this.handleChangeCalc} 

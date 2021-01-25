@@ -10,3 +10,7 @@
     background-color: black;
     color: rgb(0, 255, 115);
   }
+
+  ul {
+    list-style: none;
+  }
