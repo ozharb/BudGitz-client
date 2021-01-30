@@ -1,0 +1,25 @@
+.edit-item{
+  height: 1400px;
+  padding-right: 30px;
+}
+.cancel-button{
+    font-size: 15px;
+    cursor: pointer;
+}
+.cancel-button:hover{
+    color: #FF0038;
+}
+.cancel-button:focus{
+    color: #FF0038
+}
+
+.done-button{
+    font-size: 15px;
+    cursor: pointer;
+}
+.done-button:hover{
+    color: #5EBBDC;
+}
+.done-button:focus{
+    color: #5EBBDC
+}

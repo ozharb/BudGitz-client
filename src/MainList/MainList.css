@@ -1,16 +1,73 @@
+
+
+.MainList__delete-list-button{
+  background-color:Transparent;
+  border-width: 3px;
+  margin-top: 10px;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: white;
+    color: white;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    height: 30px;
+    padding: 8px;
+    
+    text-align: center;
+    text-justify: center;
+    text-align: center;
+    text-decoration: none;
+    width: 80px;
+}
+.MainList__delete-list-button:hover{
+  border-color: #AF0026;
+  color: #AF0026;
+}
+.MainList__delete-list-button:focus{
+  border-color: #AF0026;
+  color: #AF0026;
+}
 .MainList__button-container {
-    max-width: 380px;
-    margin: 0 10px;
+   
+    display: flex;
+    justify-content: center;
   }
-  
+.back-to-lists{
+  color: #5EBBDC;
+}
   .MainList__add-item-button {
-    margin: 0 auto 20px;
+    background-color:Transparent;
+    border-radius: 20px;
+    border-width: 3px;
+  margin-top: 10px;
+    border-style: solid;
+    border-color: white;
+    color: white;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    height: 70px;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    width: 90px;
+  
   }
-  .MainList__add-item-button:hover {
-    background-color: black;
-    color: rgb(0, 255, 115);
+ a{
+    padding: 16px 8px 8px;
   }
 
+  .MainList__add-item-button:hover{
+   cursor: pointer;
+    border-color: #3CACD5;
+    color: #3CACD5;
+  } 
+  .MainList__add-item-button:focus{
+     border-color: #3CACD5;
+     color: #3CACD5;
+  } 
   ul {
     list-style: none;
   }
+ 

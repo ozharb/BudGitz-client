@@ -1,4 +1,89 @@
 .SummaryList{
-    background-color: greenyellow;
-    padding-bottom: 20px;
+background: linear-gradient(black, rgb(27, 27, 27) );
+border-radius: 20px;
+border-width: 5px;
+border-style: solid;
+border-color: white;
+color: white;
+display: block;
+font-size: 12px;
+font-weight: bold;
+margin: 10px;
+padding-top: 15px;
+text-align: center;
+text-decoration: none;
+
+padding-bottom: 20px;
+display: flex;
+justify-content: space-evenly;
+
+}
+.Summary-Total{
+padding: 10px;
+}
+
+.Summary-Total > h4{
+font-size: 15px;
+}
+.Summary-Total > h3{
+font-size: 70px;
+margin: 0;
+color: rgb(0, 255, 115);
+filter:drop-shadow(0px 0px 8px rgb(0, 255, 115));
+/* color: rgb(0, 255, 115); */
+}
+
+li.Summary-Items-List{
+font-size: 17px;
+color: rgb(0, 255, 115);
+filter:drop-shadow(0px 0px 3px rgb(0, 255, 115));
+}
+.items-scroll{
+overflow: auto;
+width:100px;
+font-size: 30px;
+}
+
+@media (max-width: 760px) {
+.Summary-Items{
+    text-align: center;
+}
+.Summary-Total > h3{
+font-size: 30px;
+height: 80px;
+}
+li.Summary-Items-List{
+font-size: 10px;
+margin-left: 20px;
+}
+.Summary-Total {
+padding: 0;
+}
+.Summary-Total > h4{
+
+margin: 0;
+padding-bottom: 10px;
+}
+
+.Summary-Items > ul{
+font-size: 10px;
+margin-top: 5px;
+margin-left: 20px ;
+}
+.SummaryList{
+height: 100px;
+}
+.items-scroll{
+overflow: auto;
+width:100px;
+height: 80px;
+
+}
+li.Summary-Items-List{
+
+text-align: center;
+font-size: 10px;
+color: rgb(0, 255, 115);
+filter:drop-shadow(0px 0px 0px rgb(0, 255, 115));
+}
 }

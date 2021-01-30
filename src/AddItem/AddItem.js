@@ -4,6 +4,8 @@ import config from '../config'
 import './AddItem.css'
 import AppForm from '../AppForm'
 import PropTypes from 'prop-types';
+import TokenService from '../services/token-service'
+import {  Input, Required } from '../Utils/Utils'
 
 export default class AddItem  extends React.Component{
     state = {
@@ -37,8 +39,8 @@ export default class AddItem  extends React.Component{
         e.preventDefault()
         const newItem= {
             item_name: e.target['item-name'].value,
-            price: e.target['item-price'].value,
-            quantity: e.target['item-quantity'].value,
+            price: e.target['item-price'].value || 0 ,
+            quantity: e.target['item-quantity'].value || 1,
             list_id: this.props.listId,
             content: e.target['item-content'].value
         }
@@ -46,7 +48,8 @@ export default class AddItem  extends React.Component{
         {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
               },
             body: JSON.stringify(newItem)
         })
@@ -78,32 +81,32 @@ static defaultProps = {
 
 render(){
     return(
-        <section className='add-item'>
+        <section className='add-item-form'>
             <h3>Add Item</h3>
             <AppForm onSubmit={this.handleSubmit}>
             <label htmlFor='item-name-input'>
-                Name
+                Name <Required />
                  
                    { <p className="error">{this.validateName()}</p>}
             </label>
-            <input type='text' id='item-name-input' name='item-name' 
+            <Input type='text' id='item-name-input' name='item-name' 
             value={this.state.name.value}
             onChange={e => this.setName(e.target.value)}/>
             <label htmlFor='item-form-content'>
-                Content
+                Additional Info:
             </label>  
-                <input id = 'item-form-content' name = "item-content"/>
+                <Input id = 'item-form-content' name = "item-content"/>
            
             <label htmlFor='item-form-price'>
                 Cost:
             </label>
-                <input id='item-form-price' type='number' name = "item-price" defaultValue='0' />
+                <Input id='item-form-price' type='number' name = "item-price" step=".01"/>
             <label htmlFor='item-form-quantity'>
                 Qty:
             </label>
-                <input id='item-form-quantity' type='number' name = "item-quantity" defaultValue='1' />     
+                <Input id='item-form-quantity' type='number' name = "item-quantity" defaultValue='1' />     
            
-            <button className='buttons' type = "submit" disabled={this.validateName()}>Done</button>
+            <button className='done-add-item' type = "submit" disabled={this.validateName()}>Done</button>
           
          </AppForm>
         </section>

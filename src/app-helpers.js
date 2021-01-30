@@ -16,10 +16,9 @@ export const getItemsForList = (items=[], list_id) => (
 export const countItemsForList = (items=[], list_id) =>
 items.filter(items => items.list_id === parseInt(list_id)).length
 
-
 export const countTotalForList = (items=[], list_id) => {
  const itemsForList = items.filter(item => item.list_id === parseInt(list_id) && item.calc)
-console.log('items for list where calc is true:', itemsForList)
-return itemsForList.reduce((sum, item) =>  sum + (parseFloat(item.price) * item.quantity), 0)
+
+return itemsForList.reduce((sum, item) =>  sum + (parseFloat(item.price) * item.quantity), 0).toFixed(2)
 }
 

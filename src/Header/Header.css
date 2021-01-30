@@ -1,0 +1,94 @@
+.Header {
+  height: 40px;
+  display: flex;
+  align-items: normal;
+  justify-content: space-between;
+  color: white;
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+background: linear-gradient(black, rgb(27, 27, 27) );
+}
+.Header-user-info{
+  display: flex;
+}
+.Header h1 {
+  margin: 0;
+  text-shadow: 0 0 10px #149BCC;
+}
+
+.Header h1 a {
+  text-decoration: none;
+}
+
+.Header a {
+  color: #149BCC;
+ 
+}
+button{
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+.fas{
+  filter:drop-shadow(0px 0px 10px #149BCC);
+
+}
+.Header__not-logged-in {
+  display: flex;
+  flex-direction: column;
+}
+
+.Header__not-logged-in .Hyph {
+  display: none;
+
+}
+.user-profile{
+  /* margin-top: -10px; */
+  display: flex;
+  
+  height: 100px;
+  flex-direction: column;
+  
+}
+.username > a{
+color: white;
+text-decoration: none;
+ 
+}
+
+.Header > h3{
+  font-size: 20px;
+  color: #FF0038;
+}
+p{
+  margin: 10px;
+}
+img {
+  margin-top: -10px;
+  border-style: solid;
+  border-color:white;
+  border-radius: 30px;
+  background: none;
+  filter:drop-shadow(0 0 2px white);
+}
+
+.user-profile-image{
+text-align: center;
+}
+
+@media screen and (min-width: 450px) {
+ 
+  .Header h1 {
+    font-size: 22pt;
+  }
+
+  .Header__not-logged-in {
+    flex-direction: row;
+  }
+
+  .Header__not-logged-in .Hyph {
+    display: initial;
+  }
+}

@@ -1,14 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Item from '../Item/Item'
 import SummaryList from '../SummaryList/SummaryList'
 import AddItem from '../AddItem/AddItem';
-import DeleteList from '../DeleteList/DeleteList';
 import AppButton from '../AppButton/AppButton'
 import './MainList.css'
 import ApiContext from '../ApiContext'
-import { countItemsForList, getItemsForList, findList, getListName} from '../app-helpers'
+import { countItemsForList, getItemsForList, findList} from '../app-helpers'
 import ApiError from '../ApiError'
 import PropTypes from 'prop-types';
 
@@ -43,21 +42,18 @@ render(){
   const { listId } = this.props.match.params
   const { lists = [], items=[] } = this.context
   const list = findList(lists, listId)
-    
-//  const name = getListName(list)
-console.log('listid:', listId)
-console.log('list:', list)
+
 const currentList = {...list}
 const listName = currentList.list_name
 
-console.log('listname: ', currentList.list_name)
-  const itemsForList = getItemsForList(items, listId)
+const itemsForList = getItemsForList(items, listId)
+
   const listEmpty = itemsForList.length === 0
      ? <li className="empty-list-message">Add Some Items!</li>
       : null
 const addItemButtonText = this.state.addingItem
-? '-'
-: '+'
+? <FontAwesomeIcon icon='minus' />
+: <FontAwesomeIcon icon='plus' />
 
 const howManyItems = countItemsForList(items, listId)
 
@@ -69,24 +65,25 @@ handleAddItemButton={this.handleAddItemButton}
 
 
   return (
-    <>
-     <Link to="/"><h3>Back to my Lists</h3></Link>
-   <ApiError >
     <section className='MainList'>
+     <Link to="/lists" className="back-to-lists">Back to my BudGitz</Link>
+   <ApiError >
+    <div className= "MainList-Item">
   <h2>{listName}</h2>
+  <article className="SummaryList-Main">
+        <SummaryList 
+        listId = {listId}
+        />
+    </article>
  You've got {howManyItems} {howManyItems===1 ?'item':'items'} in this BudGit
   <div className='MainList__button-container'>
   <AppButton
 type='button'
 tag={Link}
 to={`/delete-list/${listId}`}
-
 className='MainList__delete-list-button'
 >
-  {/* <FontAwesomeIcon icon='plus' /> */}
-
 Delete BudGit
-
 </AppButton>
       </div>
      
@@ -98,14 +95,12 @@ Delete BudGit
           <li key={item.id}>
           
             <Item
-              
               id={item.id}
               name={item.item_name}
               price={item.price}
+              calc={item.calc}
               quantity={item.quantity}
               date_made={item.date_made}
-
-              
             />
          
           </li>
@@ -114,30 +109,23 @@ Delete BudGit
       </ul>
       {addItemForm}
       <div className='MainList__button-container'>
-        <AppButton
-          type='button'
+        <button
+          type='radio'
           onClick={this.handleAddItemButton}
         //   component={AddItem}
-          
+          tabIndex={0}
           className='MainList__add-item-button'
         >
-          {/* <FontAwesomeIcon icon='plus' /> */}
-          
+      
           {addItemButtonText}
           <br />
           Item
           <br />
-        </AppButton>
+        </button>
       </div>
-      <article className="SummaryList-Main">
-        <SummaryList 
-        listId = {listId}
-        />
-
-    </article>
-    </section>
+    </div>
     </ApiError>
-    </>
+    </section>
   )
 }
 }

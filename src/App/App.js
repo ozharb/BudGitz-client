@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {Route, Link} from 'react-router-dom';
+import LoginPage from '../LoginPage/LoginPage'
 import AllLists from '../AllLists/AllLists';
 import MainList from '../MainList/MainList';
+import Header from '../Header/Header'
 import DeleteList from '../DeleteList/DeleteList';
 import EditItem from '../EditItem/EditItem';
 import AddList from '../AddList/AddList';
@@ -9,39 +10,76 @@ import './App.css';
 import ApiContext from '../ApiContext';
 import config from '../config'
 import ApiError from '../ApiError'
-
+import TokenService from '../services/token-service'
+import PrivateRoute from '../Utils/PrivateRoute'
+import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
+import RegistrationPage from '../routes//RegistrationPage/RegistrationPage'
+import LandingPage from '../routes//LandingPage/LandingPage'
+import { BrowserRouter, Route} from 'react-router-dom'
 class App extends Component {
     state = {
         items: [],
         lists: [],
+        user: ''
     };
 
+
+    getListsandItems() {
+      Promise.all([
+       
+      fetch(`${config.API_ENDPOINT}/lists`,{
+     headers: {'authorization': `bearer ${TokenService.getAuthToken()}`, }
+             }),
+     
+ 
+     
+       fetch(`${config.API_ENDPOINT}/items`,{
+       headers: { 'authorization': `bearer ${TokenService.getAuthToken()}` }
+             })
+
+   ])
+     .then(([listsRes, itemsRes]) => {
+       if (!itemsRes.ok)
+         return itemsRes.json().then(e => Promise.reject(e))
+       if (!listsRes.ok) 
+         return listsRes.json().then(e => Promise.reject(e))
+
+       return Promise.all([
+         itemsRes.json(),
+         listsRes.json(),
+       ])
+     })
+     .then(([items, lists]) => {
+       this.setState({ items, lists })
+     })
+     .catch(error => {
+       console.error({ error })
+     })
+     let username = 'user'
+   this.setState({
+      user: window.localStorage.getItem(username)
+               })              
+
+    }
     componentDidMount() {
-        Promise.all([
-          fetch(`${config.API_ENDPOINT}/items`),
-          fetch(`${config.API_ENDPOINT}/lists`)
-        ])
-          .then(([itemsRes, listsRes]) => {
-            if (!itemsRes.ok)
-              return itemsRes.json().then(e => Promise.reject(e))
-            if (!listsRes.ok)
-              return listsRes.json().then(e => Promise.reject(e))
-    
-            return Promise.all([
-              itemsRes.json(),
-              listsRes.json(),
-            ])
-          })
-          .then(([items, lists]) => {
-            this.setState({ items, lists })
-          })
-          .catch(error => {
-            console.error({ error })
-          })
+      TokenService.hasAuthToken() && this.getListsandItems() 
+
+    }
+      saveUsername = currentUser => {
+        this.setState({
+          user: currentUser
+        })
       }
-
-      
-
+      handleLoggedOut = e => {
+        this.setState({
+          loggedIn: false,
+        })
+      }
+      handleLoggedIn = e => {
+        this.setState({
+          loggedIn: true,
+        })
+      }
       handleAddList = list => {
         this.setState({
             lists: [
@@ -60,7 +98,6 @@ class App extends Component {
         })
     }
     handleUpdate = updatedItem =>{
-     console.log('updateItem:',updatedItem)
       this.setState({
         items: this.state.items.map(i =>
           (i.id !== updatedItem.id) ? i : updatedItem
@@ -86,34 +123,43 @@ class App extends Component {
         return (
             <>
             
-            {['/', '/lists/'].map(path =>
-              <Route
+            {['/lists'].map(path =>
+              <PrivateRoute
                 exact
                 key={path}
                 path={path}
                 component={AllLists}
               />
             )}
-            <Route
+             <Route
+              exact
+              path={'/'}
+              component={LandingPage}
+            />
+            <PublicOnlyRoute
+               path={'/login'}
+               component={LoginPage}
+             />
+               <PublicOnlyRoute
+               path={'/register'}
+               component={RegistrationPage}
+             />
+            <PrivateRoute
               path='/lists/:listId'
               component={MainList}
             />
-             <Route
+             <PrivateRoute
               path='/delete-list/:listId'
               component={DeleteList}
             />
-            <Route
+            <PrivateRoute
               path='/edit/:itemId'
               component={EditItem}
             />
-            <Route
+            <PrivateRoute
               path='/add-list'
               component={AddList}
             />
-            {/* <Route
-              path='/add-item'
-              component={AddItem}
-            /> */}
           </>
         
         );
@@ -125,32 +171,39 @@ class App extends Component {
         const value = {
             items: this.state.items,
             lists: this.state.lists,
+            loggedIn: this.state.loggedIn,
+            user: this.state.user,
             addList: this.handleAddList,
             addItem: this.handleAddItem,
             deleteItem: this.handleDeleteItem,
             handleUpdate:this.handleUpdate,
-            deleteList: this.handleDeleteList
+            deleteList: this.handleDeleteList,
+            handleLoggedOut: this.handleLoggedOut,
+            handleLoggedIn: this.handleLoggedIn,
+            saveUsername: this.saveUsername
         };
         return (
+<BrowserRouter>
             <ApiContext.Provider value = {value}>
             <div className="App">
            
                   <ApiError>
-                <header className="App__header">
+              
                     
-                    <h1>
-                        <Link to="/">BudGitz</Link>{' '}
-                        
-                    </h1>
-                    <h3> The legit way to budget</h3>
-                </header>
+                    <header className='App__header'>
+                        <Header />
+                    </header>
+               
  
                 <main className="App__main">
                 
-                    {this.renderMainRoutes()}</main>
+                    {this.renderMainRoutes()}
+                    
+                </main>
                 </ApiError>
             </div>
             </ApiContext.Provider>
+            </BrowserRouter>
         );
     }
 }

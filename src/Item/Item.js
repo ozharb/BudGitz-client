@@ -1,16 +1,14 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import { parseISO, toDate, format } from 'date-fns-tz'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import {faSkullCrossbones} from '@fortawesome/free-solid-svg-icons';
+import { toDate, format } from 'date-fns-tz'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types';
 import './Item.css'
 import ApiContext from '../ApiContext'
 import config from '../config'
 import AppButton from '../AppButton/AppButton'
-import ExpandButton from '../ExpandButton/ExpandButton'
-import { getItemsForList, findItem } from '../app-helpers'
-
+import { findItem } from '../app-helpers'
+import TokenService from '../services/token-service'
 
 class Item extends Component {
   
@@ -20,17 +18,18 @@ class Item extends Component {
 
 static contextType = ApiContext;
 handleChangeCalc = e => {
+
     e.preventDefault()
     const itemId = parseInt(this.props.id)
     const { items=[] } = this.context
     const item = findItem(items, itemId)
     const newItem = {...item, calc: !item.calc}
-   
  fetch(config.API_ENDPOINT + `/items/${itemId}`, {
       method: 'PATCH',
       body: JSON.stringify(newItem),
       headers: {
         'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then(res => {
@@ -38,11 +37,8 @@ handleChangeCalc = e => {
           return res.json().then(error => Promise.reject(error))
         })
         .then(() => {
-    
-         
-            this.context.handleUpdate(newItem)
+           this.context.handleUpdate(newItem)
 
-    
         })
         .catch(error => {
           console.error({ error })
@@ -62,7 +58,8 @@ handleClickDelete = e => {
   fetch(`${config.API_ENDPOINT}/items/${itemId}`, {
     method: 'DELETE',
     headers: {
-      'content-type': 'application/json'
+      'content-type': 'application/json',
+      'authorization': `bearer ${TokenService.getAuthToken()}`,
     },
   })
     .then(res => {
@@ -82,62 +79,57 @@ handleClickDelete = e => {
 }
 
 
+
 render(){
     const itemId = parseInt(this.props.id)
     const { items=[] } = this.context
     const item = findItem(items, itemId)
-    console.log('details:', item.content)
+    // const itemCalc = this.props.calc
     const expandItemButtonText = this.state.expand
-? `﹀` 
-:  `〉`
+?  <i className="fas fa-chevron-down"><FontAwesomeIcon className='chevron' icon='chevron-down' /></i> 
+:   <i className="fas fa-chevron-right"><FontAwesomeIcon className='chevron' icon='chevron-right' /></i>
 const itemDetails= this.state.expand
 ? <div className='Item__content'>
-{item.content.split(/\n \r|\n/).map((para, i) =>
-  <p key={i}>{para}</p>
-)}
+
+    {item.content.split(/\n \r|\n/).map((para, i) =>
+        <p key={i}>{para}</p>)}
  <AppButton
   tag={Link}
   to={`/edit/${itemId}`}
-        //   component={AddItem}
-          className='MainList__edit-item-button'
-        >
-          {/* <FontAwesomeIcon icon='plus' /> */}
-          Edit
-        </AppButton>
+className='MainList__edit-item-button'>
+Edit
+</AppButton>
 </div>
 :  null
-    const calcButton = item.calc
-    ? 'Remove'
-     : 'Put Back'
 
-  const { name, id, price, quantity, date_made, calc } = this.props
+const calcButton = this.props.calc
+    ? <span className="remove-item">Remove</span>
+     : <span className="put-back-item">Put Back</span>
+
+  const { name, price, quantity, date_made, calc } = this.props
+  const date = toDate(date_made)
   return (
     <div className='Item'>
+    
       <header className='Item-Header'>
-            <ExpandButton
+        <div className="item-name-expand">
+            <button
           type='button'
           onClick={this.handleItemExpand}
           className='Item__expand-item-button'>
           {expandItemButtonText}
-        </ExpandButton>
-      <h2 className='Item__name'>
-        {/* <Link to={`/item/${id}`}> */}
+        </button>
+ </div>
+      <h3 className='Item__name' onClick={this.handleItemExpand}>
+ 
+       
           {name}
-        {' | '}
-          cost: ${price}
-        {' | '}
-          qty: {quantity}
-        {/* </Link> */}
-      </h2>
-    
-  
-        </header>
-  {itemDetails}
-  <br />
-      <button className = 'item_calc'
+ </h3>
+       
+        <div className="item-remove-delete">
+     <button className = 'item__calc'
       type='radio' name = 'calc' 
       onClick={this.handleChangeCalc} 
-      
       value = {calc}> 
       
       {calcButton}
@@ -147,19 +139,26 @@ const itemDetails= this.state.expand
       <button className='item__delete' 
       type='button'
       onClick={this.handleClickDelete}
-      >
-         
-        {/* <FontAwesomeIcon icon={faSkullCrossbones}  /> */}
-        {' '}
+      > 
+         {/* <FontAwesomeIcon icon={faChevronRight}  />  */}
+    
         Delete
       </button>
+     </div>
+        </header>
+        <div className="item-cost-qty">
+        <div className='item-cost-display'>   cost: ${price} </div>
+      
+        <div className="item-qty-display"> qty: {quantity}</div>  
+        </div>
+  {itemDetails}
+  <br />
       <div className='Item__date'>
-        <div className='Item__date_made'>
+        <div className='Item__date-made'>
           Added:
           {' '}
-          <span className='date_made'>
-            {
-format(toDate(date_made), 'EEEE MM/dd/yyyy h:mm aaaaa\'m\' z', { timeZone : 'America/Los_Angeles' })}
+          <span className='date-made'>
+            {format(date, 'EEEE MM/dd/yyyy')}
           </span>
         </div>
       </div>
@@ -168,14 +167,13 @@ format(toDate(date_made), 'EEEE MM/dd/yyyy h:mm aaaaa\'m\' z', { timeZone : 'Ame
 }
 }
 Item.defaultProps = {
-  name:"",
+  item_name:"",
   id: "",
-}
+} 
 
 Item.propTypes = {
   props: PropTypes.shape({
-    id: PropTypes.isRequired,
-    item_name: PropTypes.string.isRequired,
+    id: PropTypes.isRequired
   }),
 
 }

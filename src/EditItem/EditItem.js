@@ -3,8 +3,8 @@ import ApiContext from '../ApiContext'
 import config from '../config'
 import './EditItem.css'
 import AppForm from '../AppForm'
-import { findItem } from '../app-helpers'
-
+import TokenService from '../services/token-service'
+import { Input } from '../Utils/Utils'
 export default class EditItem  extends React.Component{
     state = {
         id: '',
@@ -20,7 +20,6 @@ export default class EditItem  extends React.Component{
     handleClickCancel = e => {
         e.preventDefault()
         const  listId  = this.state.list_id
-        console.log('cancel')
         this.props.history.push(`/lists/${listId}`)
       }
     setName = name => {
@@ -43,8 +42,8 @@ export default class EditItem  extends React.Component{
         const newItem= {
             id : this.state.id,
             item_name: e.target['item-name'].value,
-            price: e.target['item-price'].value,
-            quantity: e.target['item-quantity'].value,
+            price: e.target['item-price'].value || 0,
+            quantity: e.target['item-quantity'].value || 1,
             list_id: this.state.list_id,
             content: e.target['item-content'].value,
             date_made: this.state.date_made,
@@ -54,6 +53,7 @@ export default class EditItem  extends React.Component{
             method: 'PATCH',
              body: JSON.stringify(newItem),
             headers: {
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
                 'content-type': 'application/json',
               },
            
@@ -65,8 +65,6 @@ export default class EditItem  extends React.Component{
             
         })
         .then( () =>{
-        console.log('new:', newItem)
-
         this.context.handleUpdate(newItem)
        
         this.props.history.push(`/lists/${this.state.list_id}`)
@@ -86,22 +84,24 @@ static defaultProps = {
 }
 
  componentDidMount() {
-     const itemId = this.props.match.params.itemId
-      
+    window.scrollTo(0, 0)
+     const itemId= this.props.match.params.itemId
+    
        
        fetch(`${config.API_ENDPOINT}/items/${itemId}`, {
-         method: 'GET'
-       })
+        headers: {
+            'authorization': `bearer ${TokenService.getAuthToken()}`,
+            'content-type': 'application/json',
+          },
+       }
+       )
        .then(res => {
         if (!res.ok)
           return res.json().then(error => Promise.reject(error))
           return res.json()
         })
-         .then(data => {
-             console.log(data)
-         
-             
-           this.setState({
+         .then(data => {            
+        this.setState({
         id:data.id,
         name: {value: data.item_name, touched: false},
         price: data.price,
@@ -123,6 +123,7 @@ render(){
 
     return(
         <section className='edit-item'>
+         
             <h3>Edit Item</h3>
             <AppForm onSubmit={this.handleSubmit}
             onCancel={this.handleClickCancel}>
@@ -130,27 +131,26 @@ render(){
                 Name
                    { <p className="error">{this.validateName()}</p>}
             </label>
-            <input type='text' id='item-name-input' name='item-name'
+            <Input type='text' id='item-name-input' name='item-name'
             
             value={this.state.name.value}
             onChange={e => this.setName(e.target.value)}/>
             <label htmlFor='item-form-content'>
-                Content
+                Additional Info:
             </label>  
-                <input id = 'item-form-content' name = "item-content" defaultValue={this.state.content}/>
+                <Input id = 'item-form-content' name = "item-content" defaultValue={this.state.content}/>
            
             <label htmlFor='item-form-price'>
                 Cost:
             </label>
-                <input id='item-form-price' type='number' name = "item-price" min={0} defaultValue={this.state.price} />
+                <Input id='item-form-price' type='number' name = "item-price" min={0} step=".01" defaultValue={this.state.price} />
             <label htmlFor='item-form-quantity'>
                 Qty:
             </label>
-                <input id='item-form-quantity' type='number' name = "item-quantity" min={1} defaultValue={this.state.quantity} />     
+                <Input id='item-form-quantity' type='number' name = "item-quantity" min={1} defaultValue={this.state.quantity} />     
            
-                <button type="cancel" className='buttons' onClick={this.handleClickCancel}>Cancel</button>
-            <button className='buttons' type = "submit" disabled={this.validateName()}>Done</button>
-          
+            <button className='done-button' type = "submit" disabled={this.validateName()}>Done</button>
+            <button type="cancel" className='cancel-button' onClick={this.handleClickCancel}>Cancel</button>
          </AppForm>
         </section>
 

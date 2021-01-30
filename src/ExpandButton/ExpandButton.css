@@ -1,23 +1,19 @@
 
 .ExpandButton {
-    background-color:black;
+    background: none;
     border-radius: 20px;
     border: 3;
     color: white;
     display: block;
-    font-size: 12px;
-    font-weight: bold;
     height: 12px;
     padding: 8px;
     text-align: center;
     text-decoration: none;
-    width: 15px;
+    width: 25px;
     margin-right: 10px;
+  
   }
   
-  a.ExpandButton {
-    /* padding: 16px 8px 8px; */
-  }
   
   .ExpandButton:hover {
     cursor: pointer;

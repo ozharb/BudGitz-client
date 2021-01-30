@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<section
+  className="edit-item"
+>
+  <h3>
+    Edit Item
+  </h3>
+  <form
+    action="#"
+    className="App-form "
+    item=""
+    list=""
+    onCancel={[Function]}
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="item-name-input"
+    >
+      Name
+      <p
+        className="error"
+      >
+        (Name needed)
+      </p>
+    </label>
+    <input
+      className="Input "
+      id="item-name-input"
+      name="item-name"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <label
+      htmlFor="item-form-content"
+    >
+      Additional Info:
+    </label>
+    <input
+      className="Input "
+      defaultValue=""
+      id="item-form-content"
+      name="item-content"
+    />
+    <label
+      htmlFor="item-form-price"
+    >
+      Cost:
+    </label>
+    <input
+      className="Input "
+      defaultValue=""
+      id="item-form-price"
+      min={0}
+      name="item-price"
+      step=".01"
+      type="number"
+    />
+    <label
+      htmlFor="item-form-quantity"
+    >
+      Qty:
+    </label>
+    <input
+      className="Input "
+      defaultValue=""
+      id="item-form-quantity"
+      min={1}
+      name="item-quantity"
+      type="number"
+    />
+    <button
+      className="done-button"
+      disabled="(Name needed)"
+      type="submit"
+    >
+      Done
+    </button>
+    <button
+      className="cancel-button"
+      onClick={[Function]}
+      type="cancel"
+    >
+      Cancel
+    </button>
+  </form>
+</section>
+`;

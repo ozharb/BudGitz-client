@@ -8,6 +8,11 @@ const ApiContext = React.createContext({
   deleteItem: () => {},
   deleteList: () => {},
   handleUpdate: () => {},
+  handleLoggedOut: ()=>{},
+  handleLoggedIn: ()=>{},
+  saveUsername: () => {},
+
 })
 
 export default ApiContext
+

@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<div
+  className="Item"
+>
+  <header
+    className="Item-Header"
+  >
+    <div
+      className="item-name-expand"
+    >
+      <button
+        className="Item__expand-item-button"
+        onClick={[Function]}
+        type="button"
+      >
+        <i
+          className="fas fa-chevron-right"
+        />
+      </button>
+    </div>
+    <h3
+      className="Item__name"
+      onClick={[Function]}
+    />
+    <div
+      className="item-remove-delete"
+    >
+      <button
+        className="item__calc"
+        name="calc"
+        onClick={[Function]}
+        type="radio"
+      >
+        <span
+          className="put-back-item"
+        >
+          Put Back
+        </span>
+      </button>
+      <button
+        className="item__delete"
+        onClick={[Function]}
+        type="button"
+      >
+        Delete
+      </button>
+    </div>
+  </header>
+  <div
+    className="item-cost-qty"
+  >
+    <div
+      className="item-cost-display"
+    >
+         cost: $
+       
+    </div>
+    <div
+      className="item-qty-display"
+    >
+       qty: 
+    </div>
+  </div>
+  <br />
+  <div
+    className="Item__date"
+  >
+    <div
+      className="Item__date-made"
+    >
+      Added:
+       
+      <span
+        className="date-made"
+      >
+        Wednesday 12/31/1969
+      </span>
+    </div>
+  </div>
+</div>
+`;

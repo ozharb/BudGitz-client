@@ -4,7 +4,8 @@ import config from '../config'
 import './AddList.css';
 import AppForm from '../AppForm';
 import PropTypes from 'prop-types';
-
+import TokenService from '../services/token-service'
+import {Input, Required} from '../Utils/Utils'
 export default class AddList  extends React.Component{
     state = {
         name: {value: '', touched: false},
@@ -34,7 +35,8 @@ export default class AddList  extends React.Component{
         {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
               },
             body: JSON.stringify(newList)
         })
@@ -47,7 +49,6 @@ export default class AddList  extends React.Component{
         .then( data =>{
         
             this.context.addList(data)
-            console.log(data.id)
             this.props.history.push(`/lists/${data.id}`)
             
         
@@ -66,23 +67,31 @@ static defaultProps = {
 }
 
 
-
+handleClickCancel = e => {
+    const { history } = this.props
+        e.preventDefault()
+     history.push(`/lists`)
+      }
 render(){
+  
+    
     return(
         <section className='add-list'>
-            <h3>New BudGit</h3>
-            <AppForm onSubmit={this.handleSubmit}>
+            <h3>New BudGit!</h3>
+            <AppForm onSubmit={this.handleSubmit}
+            onCancel={this.handleClickCancel}
+            >
             <label htmlFor='list-name-input'>
-                BudGit Name
+                BudGit Name<Required />
                  
                    { <p className="error">{this.validateName()}</p>}
             </label>
-            <input type='text' id='list-name-input' name='list-name' 
+            <Input type='text' id='list-name-input' name='list-name' 
             value={this.state.name.value}
             onChange={e => this.setName(e.target.value)}/>
            
-            <button className='buttons' type = "submit" disabled={this.validateName()}>Done</button>
-          
+            <button className='done-button' type = "submit" disabled={this.validateName()}>Done</button>
+            <button type="cancel" className='cancel-button' onClick={this.handleClickCancel}>Cancel</button>
          </AppForm>
         </section>
 
@@ -91,11 +100,8 @@ render(){
 }
 }
 
-AddList.defaultProps = {
-    item: "",
-    list: ""
-}
 AddList.propTypes = {
-    item: PropTypes.string.isRequired,
-    list: PropTypes.string.isRequired
-  }
+    props: PropTypes.shape({
+      history: PropTypes.object,
+    })
+}

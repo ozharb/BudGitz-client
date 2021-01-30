@@ -1,0 +1,53 @@
+.add-item-form{
+    height: 100%;
+    padding-right: 40px;
+}
+.done-add-item{
+    cursor: pointer;
+    color: #3CACD5;
+    font-size: 20px;
+    }
+    .done-add-item:hover{
+    filter:drop-shadow(0px 0px 8px #3CACD5);
+    }
+    .done-add-item:focus{
+  
+    filter:drop-shadow(0px 0px 8px #3CACD5);
+    }
+.add-item-form>input,
+textarea {
+  border: 1px solid #ddd;
+  display: block;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-align: left;
+  width: 70%;
+  border-radius: 4px;
+}
+
+.Input::placeholder,
+.Textarea::placeholder {
+  color: #ccc;
+}
+
+.Textarea {
+  resize: vertical;
+}
+
+
+
+.Required {
+  color: #CA1551;
+  font-family: Arial;
+  font-weight: bold;
+}
+
+.Section {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.Section--list {
+  margin-left: 10px;
+  margin-right: 10px;
+}

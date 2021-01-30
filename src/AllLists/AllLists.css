@@ -1,0 +1,75 @@
+.AllLists{
+    padding-bottom: 1000px;
+}
+.AllLists > h3{
+    font-size: 25px;
+    text-align: center;
+}
+.AllLists__add-list-button{
+    background-color:Transparent;
+    border-radius: 20px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: white;
+    color: white;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    height: 40px;
+    padding-top: 15px;
+    text-align: center;
+    text-decoration: none;
+    width: 60px;
+    
+}
+.no-lists{
+    text-align: center;
+}
+.new-list-link{
+    cursor: pointer;
+    color: #3CACD5;
+    filter:drop-shadow(0px 0px 8px #149BCC);
+}
+.AllLists__add-list-button:hover{
+   
+    border-color: #3CACD5;
+    color: #3CACD5;
+    filter:drop-shadow(0px 0px 8px #149BCC);
+  } 
+.AllLists__add-list-button:focus{
+     border-color: #3CACD5;
+     color: #3CACD5;
+     filter:drop-shadow(0px 0px 8px #149BCC);
+  } 
+
+  .AllLists__list-link{
+    padding: 10px;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: white;  
+    margin: 20px;
+    background: linear-gradient(black(10, 10, 10), rgb(88, 87, 87) );
+  }
+  .AllLists__list-link:hover{
+    filter:drop-shadow(0px 0px 8px #149BCC);
+    border-color: #3CACD5;
+    color: #3CACD5;
+  } 
+  .AllLists__list-link:focus {
+    filter:drop-shadow(0px 0px 8px #149BCC);
+    border-color: #3CACD5;
+    color: #3CACD5;
+  } 
+  a{
+      color: white;
+      text-decoration: none;
+  }
+ ul{
+    padding: 0;
+    margin: 20px;
+    text-align: center;
+    list-style: none; 
+  }
+  .AllLists__list >li{
+      margin-bottom: 30px;
+  }

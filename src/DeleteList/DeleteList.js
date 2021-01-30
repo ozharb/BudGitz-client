@@ -5,7 +5,8 @@ import config from '../config'
 import './DeleteList.css';
 import AppForm from '../AppForm';
 import PropTypes from 'prop-types';
-import { getItemsForList, findList, getListName} from '../app-helpers'
+import { findList } from '../app-helpers'
+import TokenService from '../services/token-service'
 
 export default class DeleteList  extends React.Component{
     state = {
@@ -19,7 +20,6 @@ export default class DeleteList  extends React.Component{
     handleClickCancel = e => {
       e.preventDefault()
       const { listId } = this.props.match.params
-      console.log('cancel')
       this.props.history.push(`/lists/${listId}`)
     }
     handleClickDelete = e => {
@@ -32,7 +32,8 @@ export default class DeleteList  extends React.Component{
         fetch(`${config.API_ENDPOINT}/lists/${listId}`, {
           method: 'DELETE',
           headers: {
-            'content-type': 'application/json'
+            'content-type': 'application/json',
+            'authorization': `bearer ${TokenService.getAuthToken()}`,
           },
         })
           .then(res => {
@@ -63,15 +64,14 @@ static defaultProps = {
 }
 
 
-
+componentDidMount(){
+  window.scrollTo(0, 0)
+}
 render(){
-  const { listId } = this.props.match.params
-  const { lists = [], items=[] } = this.context
+  const  listId  = this.props.match.params.listId
+  const { lists = [] } = this.context
   const list = findList(lists, listId)
     
-//  const name = getListName(list)
-console.log('listid:', listId)
-console.log('list:', list)
 const currentList = {...list}
 const listName = currentList.list_name
 
@@ -79,7 +79,7 @@ const listName = currentList.list_name
   const display = this.state.listDeleted
   ? <div>
     <p>BudGit Deleted</p>
-    <Link to="/"><p>Back to my BudGitz</p></Link>
+    <Link to="/lists"><h3>Back to my BudGitz</h3></Link>
   </div>
   :   <div>
   <h3>Delete {listName}?</h3>
