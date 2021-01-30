@@ -45,6 +45,7 @@ export default class EditItem  extends React.Component{
             price: e.target['item-price'].value || 0,
             quantity: e.target['item-quantity'].value || 1,
             list_id: this.state.list_id,
+            calc: this.state.calc,
             content: e.target['item-content'].value,
             date_made: this.state.date_made,
         }
@@ -105,6 +106,7 @@ static defaultProps = {
         id:data.id,
         name: {value: data.item_name, touched: false},
         price: data.price,
+        calc: data.calc,
         quantity: data.quantity,
         list_id: data.list_id,
         content: data.content,
