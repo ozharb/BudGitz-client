@@ -52,10 +52,12 @@ render(){
   <p>Your Status:</p>
 {this.userStatus(lists.length)}
 <Link
-          onClick={this.handleLogoutClick}
-          to='/login'>
-          Logout
-        </Link>
+onClick={this.handleLogoutClick}
+to='/login'
+className = "logout">
+
+Logout
+</Link>
    </div>
  
 

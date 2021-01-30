@@ -32,7 +32,7 @@ Items in your BugGit Total:
 
 {listItems.map((item, i) =>
        <li key={`${item.id}-summary${i}`}
-       className="Summary-Items-List">
+       >
            {item.item_name}
        </li>
     )}

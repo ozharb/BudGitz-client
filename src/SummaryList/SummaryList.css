@@ -33,7 +33,7 @@ filter:drop-shadow(0px 0px 8px rgb(0, 255, 115));
 /* color: rgb(0, 255, 115); */
 }
 
-li.Summary-Items-List{
+ul.items-scroll{
 font-size: 17px;
 color: rgb(0, 255, 115);
 filter:drop-shadow(0px 0px 3px rgb(0, 255, 115));
@@ -46,7 +46,7 @@ font-size: 30px;
 
 @media (max-width: 760px) {
 .Summary-Items{
-    text-align: center;
+text-align: center;
 }
 .Summary-Total > h3{
 font-size: 30px;
@@ -74,14 +74,14 @@ margin-left: 20px ;
 height: 100px;
 }
 .items-scroll{
+margin-left: 20px;   
 overflow: auto;
 width:100px;
 height: 80px;
 
 }
-li.Summary-Items-List{
-
-text-align: center;
+ul.items-scroll{
+margin-left: 30px;
 font-size: 10px;
 color: rgb(0, 255, 115);
 filter:drop-shadow(0px 0px 0px rgb(0, 255, 115));
