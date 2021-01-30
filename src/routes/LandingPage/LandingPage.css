@@ -1,10 +1,10 @@
 
 
-h3.LandingPage{
+.LandingPage{
     text-align: center;
 }
 .register-button{
-    margin-left: 100px;
+    margin: auto;
     background-color:Transparent;
     border-radius: 20px;
     border-width: 5px;
@@ -15,15 +15,11 @@ h3.LandingPage{
     font-size: 12px;
     font-weight: bold;
     height: 30px;
-    padding: 8px;
     text-align: center;
     text-decoration: none;
     width: 90px;
 }
-a.register-button{
-    padding-top: 16px;
-    padding-bottom: 10px;
-}
+
 .register-button:hover{
     cursor: pointer;
      border-color: #3CACD5;
@@ -35,3 +31,9 @@ a.register-button{
       border-color: #3CACD5;
       color: #3CACD5;
    } 
+
+.app-screenshot{
+border-style: solid; 
+border-width: 2px;
+
+}

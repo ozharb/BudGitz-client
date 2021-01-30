@@ -55,7 +55,6 @@ render(){
 onClick={this.handleLogoutClick}
 to='/login'
 className = "logout">
-
 Logout
 </Link>
    </div>

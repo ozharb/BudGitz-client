@@ -7,7 +7,7 @@
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 22px;
 background: linear-gradient(black, rgb(27, 27, 27) );
 }
 .Header-user-info{
@@ -66,7 +66,7 @@ text-decoration: none;
 p{
   margin: 10px;
 }
-img {
+.user-profile-img {
   margin-top: -10px;
   border-style: solid;
   border-color:white;

@@ -31,8 +31,7 @@ Items in your BugGit Total:
 <ul className="items-scroll">
 
 {listItems.map((item, i) =>
-       <li key={`${item.id}-summary${i}`}
-       >
+       <li key={`${item.id}-summary${i}`} >
            {item.item_name}
        </li>
     )}

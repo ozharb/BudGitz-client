@@ -2,14 +2,16 @@
 text-align: center;
 border-radius: 10px;
 font-size: 12px;
-
-position: absolute;
+width: 150px;
+position: relative;
 background: linear-gradient(black, rgb(27, 27, 27) );
-margin-Top: 10px;
 margin-left: -8.75em;
-margin-right: 15px;
 padding: 2px;
 
-
 }
-
+h4{
+    margin: 0;
+}
+.logout{
+    font-size: 15px;
+}

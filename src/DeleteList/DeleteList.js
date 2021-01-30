@@ -102,10 +102,16 @@ const listName = currentList.list_name
 }
 
 DeleteList.defaultProps = {
-    item: "",
-    list: ""
+    history: {},
+    match: {
+      params: {}
+    }
 }
 DeleteList.propTypes = {
-    item: PropTypes.string.isRequired,
-    list: PropTypes.string.isRequired
-  }
+  props: PropTypes.shape({
+    history: PropTypes.object,
+  }),
+  match: PropTypes.shape({
+    params: PropTypes.object,
+  })
+}

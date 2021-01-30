@@ -25,6 +25,9 @@ exports[`renders the UI as expected 1`] = `
       onClick={[Function]}
     />
     <div
+      role="alert"
+    />
+    <div
       className="item-remove-delete"
     >
       <button

@@ -112,7 +112,6 @@ Delete BudGit
         <button
           type='radio'
           onClick={this.handleAddItemButton}
-        //   component={AddItem}
           tabIndex={0}
           className='MainList__add-item-button'
         >
@@ -130,10 +129,10 @@ Delete BudGit
 }
 }
 MainList.defaultProps = {
-  items: [],
+  match: {},
 }
 MainList.propTypes = {
-  context: PropTypes.shape({
-    items: PropTypes.array
+  props: PropTypes.shape({
+    match: PropTypes.object,
   })
 }

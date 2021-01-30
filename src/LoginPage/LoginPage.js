@@ -26,12 +26,6 @@ export default class LoginPage extends Component {
         history.push('/lists')
         
      }, 2001); 
-
-   
-  //   history.push(destination)
-    
-    // this.context.handleLoggedIn()
- 
   }
   static contextType = ApiContext
   render() {

@@ -93,7 +93,7 @@ export default class Header extends Component {
                   <div className="username">
                     <div className = "user-profile-image">
 
-         <img src={`https://robohash.org/budgitz-${user}`} width= "40" alt="user-profile"/>
+         <img src={`https://robohash.org/budgitz-${user}`} width= "40" className = "user-profile-img" alt="user-profile"/>
                   </div>
 
                   <div>

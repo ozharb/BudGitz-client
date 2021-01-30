@@ -1,5 +1,7 @@
 
-
+.MainList{
+  padding-bottom: 100px;
+}
 .MainList__delete-list-button{
   background-color:Transparent;
   border-width: 3px;

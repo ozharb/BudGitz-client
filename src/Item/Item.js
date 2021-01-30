@@ -14,6 +14,7 @@ class Item extends Component {
   
   state = {
     expand: false,
+    error: null,
 };
 
 static contextType = ApiContext;
@@ -37,11 +38,12 @@ handleChangeCalc = e => {
           return res.json().then(error => Promise.reject(error))
         })
         .then(() => {
+          console.log(newItem)
            this.context.handleUpdate(newItem)
 
         })
-        .catch(error => {
-          console.error({ error })
+        .catch(res => {
+         this.setState({ error: res.error.message})
         })
   };
 
@@ -73,14 +75,15 @@ handleClickDelete = e => {
       this.context.deleteItem(itemId)
 
     })
-    .catch(error => {
-      console.error({ error })
+    .catch(res => {
+      this.setState({ error: res.error.message})
     })
 }
 
 
 
 render(){
+  const { error } = this.state
     const itemId = parseInt(this.props.id)
     const { items=[] } = this.context
     const item = findItem(items, itemId)
@@ -125,7 +128,10 @@ const calcButton = this.props.calc
        
           {name}
  </h3>
-       
+ <div role='alert'>
+          {error && <p className='red'>{error}..hmm. Try refreshing the page.</p>}
+           </div>
+
         <div className="item-remove-delete">
      <button className = 'item__calc'
       type='radio' name = 'calc' 
