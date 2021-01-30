@@ -5,7 +5,7 @@ This repo is the front-end client, built in React.  You can see the app live at 
 
 The app is meant for mobile use, but will still scale for desktop viewing.
 
-To check out the app, I suggest you create a dummy account so you can see the onboarding experience.  But if you just want to view what a program looks like, you can use the demo account.
+To check out the app, I suggest you create a dummy account so you can see the onboarding experience.  But if you just want to view what the program looks like, you can use the demo account.
 
 #### Demo Account Details
 
@@ -19,7 +19,7 @@ The key to financial well-being is organization. BudGitz provides you with a qui
 
 ## App Screenshots
 
-![Imgur](https://imgur.com/a/NcOWrOt)
+https://ibb.co/xmRVD7y
 
 ## Technology
 
