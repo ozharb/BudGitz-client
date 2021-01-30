@@ -1,5 +1,5 @@
 # BudGitz
-Financial planning simplified. Easily create budgets for your personal project or expenses.
+Financial planning simplified. Easily create budgets for your personal projects or expenses.
 
 This repo is the front-end client, built in React.  You can see the app live at [https://budgitz-client.ozharb.vercel.app/]
 
