@@ -45,11 +45,10 @@ Run `npm install` to load dependencies
 
 Run `npm test` to ensure a stable build
 
-This is only the front end client, so develop locally you'll need the backend server as well.
 
-To get the backend up and running see [https://github.com/verdi327/bettr-server](https://github.com/verdi327/bettr-server)
+The repo for the backend end server I've developed is available at https://github.com/ozharb/budgitz-api.git and is currently deployed on Heroku.
 
-Deployments are handled through Zeit and can be run via `npm run deploy`
+Deployments are handled through vercel and can be run via `npm run deploy`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
