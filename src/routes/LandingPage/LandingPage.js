@@ -27,19 +27,20 @@ export default class RegistrationPage extends Component {
         <section className="app-features">
             <h3>Organize your projects, wishlists, grocery lists, even vacations!</h3>
     
-            <img src={allLists} width = "100" className = "app-screenshot home" alt="app-screesnshot-home-page" />
+            <img src={allLists} width = "200" className = "app-screenshot home" alt="app-screesnshot-home-page" />
         <p>The key to financial well-being is organization. BudGitz provides you with a quick and simple interface to breakdown big costs into small purchases
-           to encourage thoughtful spending and creative planning. Us the app's intuitive features to edit purchases before you make them.</p>
+           to encourage thoughtful spending and creative planning. Use the app's intuitive features to edit purchases before you make them.</p>
         </section>
         <section>
           
             <h3>Calculate Totals As You go</h3>
-            <img src={main} width = "100" className = "app-screenshot main" alt="app-screesnshot-main" />
-        <p> Watch your total costs add up in real-time as you add items to your BudGit and use simple calculations to take your financial planning even further.</p>
+            <img src={main} width = "200" className = "app-screenshot main" alt="app-screesnshot-main" />
+        <p> Watch your total costs update in real-time as you add, remove, and edit items in each BudGit making your financial planning fast and furious.</p>
         <p><em>"It's like receipts from the future!" - App user, Marty McPhly</em></p>
-        <img src={userStatus} width = "100" className = "app-screenshot main" alt="app-screesnshot-main" />
+        <img src={userStatus} width = "200" className = "app-screenshot main" alt="app-screesnshot-main" />
             <h4>Add More BudGitz and watch your status go up!</h4>
-       
+        <p>Start out as a Lil Budgitter; add enough Budgitz and get to coveted Legendary status.</p>
+        🤑
       </section>
       <section>
       <h3>Register your new account now and get to BudGit-ing</h3>

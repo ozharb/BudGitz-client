@@ -25,7 +25,6 @@ export default class LoginForm extends Component {
         password: password.value,
       })
         .then(res => {
-    
           const username = 'user'
           user_name.value = ''
           password.value = ''

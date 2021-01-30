@@ -10,12 +10,9 @@ export default class LoginPage extends Component {
       push: () => {},
     },
   }
- 
 
   handleLoginSuccess = () => {
    const { history } = this.props
-
-  //   const destination = (location.state || {}).from || '/'
   
   setTimeout(() => {
       history.go(0)
