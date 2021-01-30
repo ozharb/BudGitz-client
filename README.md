@@ -19,7 +19,7 @@ The key to financial well-being is organization. BudGitz provides you with a qui
 
 ## App Screenshots
 
-[screenshot](https://ibb.co/xmRVD7y)
+![screenshot](https://i.ibb.co/4s5B7Vc/Screen-Shot-2021-01-30-at-10-48-45-AM.png)
 
 ## Technology
 
