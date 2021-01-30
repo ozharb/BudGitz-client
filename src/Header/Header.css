@@ -37,10 +37,11 @@ button{
 }
 .Header__not-logged-in {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .Header__not-logged-in .Hyph {
+  display: flex;
   display: none;
 
 }

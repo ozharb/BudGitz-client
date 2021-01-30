@@ -85,8 +85,8 @@ const listName = currentList.list_name
   <h3>Delete {listName}?</h3>
   <AppForm onSubmit={this.handleClickDelete}
   onCancel={this.handleClickCancel}>
-  <button type="cancel" className='buttons' onClick={this.handleClickCancel}>No</button>
-  <button className='buttons' type = "submit">Yes</button>
+  <button type="cancel" className='delete-cancel-button' onClick={this.handleClickCancel}>No</button>
+  <button className='delete-yes-button' type = "submit">Yes</button>
   </AppForm>
   </div>
 

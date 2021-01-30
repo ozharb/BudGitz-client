@@ -6,4 +6,24 @@
 .delete-list{
     color: #FF0038;
 }
+.delete-cancel-button{
+    font-size: 20px;
+    cursor: pointer;
+}
+.delete-cancel-button:hover{
+    color: #5EBBDC;
+}
+.delete-cancel-button:focus{
+    color: #5EBBDC
+}
 
+.delete-yes-button{
+    font-size: 20px;
+    cursor: pointer;
+}
+.delete-yes-button:hover{
+    color: #FF0038;
+}
+.delete-yes-button:focus{
+    color: #FF0038
+}
