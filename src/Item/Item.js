@@ -106,8 +106,8 @@ Edit
 :  null
 
 const calcButton = this.props.calc
-    ? <span className="remove-item">in</span>
-     : <span className="put-back-item">out</span>
+    ?    <i className="fas fa-check-circle"><FontAwesomeIcon className='check-circle' icon='check-circle' /></i>
+     :  <i className="fas fa-circle"><FontAwesomeIcon className='circle' icon='circle' /></i>
 
   const { name, price, quantity, date_made, calc } = this.props
   const date = toDate(date_made)
