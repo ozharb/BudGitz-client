@@ -30,25 +30,33 @@ exports[`renders the UI as expected 1`] = `
     <div
       className="item-remove-delete"
     >
-      <button
-        className="item__calc"
-        name="calc"
-        onClick={[Function]}
-        type="radio"
+      <div
+        className="remove-button"
       >
-        <span
-          className="put-back-item"
+        <button
+          className="item__calc"
+          name="calc"
+          onClick={[Function]}
+          type="radio"
         >
-          Put Back
-        </span>
-      </button>
-      <button
-        className="item__delete"
-        onClick={[Function]}
-        type="button"
+          <i
+            className="fas fa-circle"
+          />
+        </button>
+      </div>
+      <div
+        className="delete-button"
       >
-        Delete
-      </button>
+        <button
+          className="item__delete"
+          onClick={[Function]}
+          type="button"
+        >
+          <i
+            className="fas fa-times"
+          />
+        </button>
+      </div>
     </div>
   </header>
   <div
