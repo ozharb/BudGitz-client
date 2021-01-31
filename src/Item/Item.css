@@ -1,126 +1,153 @@
 
 .Item { 
-    padding: 10px;
-   border-radius: 20px;
-   border-style: solid;
-   border-color: white;  
-   filter:drop-shadow(5px 10px black);
-   margin: 20px;
-   background: linear-gradient(black, rgb(27, 27, 27) );
+padding: 10px;
+border-radius: 20px;
+border-style: solid;
+border-color: white;  
+filter:drop-shadow(5px 10px black);
+margin: 20px;
+background: linear-gradient(black, rgb(27, 27, 27) );
 }
 .Item-Header{
 justify-content: space-between;
 display: flex;
-  cursor: pointer;  
+cursor: pointer;  
 }
 
 button.Item__expand-item-button{
-    font-size: 30px;
+font-size: 30px;
 }
 .MainList__edit-item-button{
-    background-color:Transparent;
-    border-radius: 20px;
-    border-width: 4px;
-    border-style: solid;
-    border-color: white;
-    color: white;
-    display: block;
-    font-size: 12px;
-    font-weight: bold;
-    height: 5px;
-    text-align: center;
-    text-decoration: none;
-    width: 7px;
-    padding-right: 30px;
-    padding-bottom: 20px;
-    padding-left: 15px;
-    margin-left: 30px;
+background-color:Transparent;
+border-radius: 20px;
+border-width: 4px;
+border-style: solid;
+border-color: white;
+color: white;
+display: block;
+font-size: 12px;
+font-weight: bold;
+height: 5px;
+text-align: center;
+text-decoration: none;
+width: 7px;
+padding-right: 30px;
+padding-bottom: 20px;
+padding-left: 15px;
+margin-left: 30px;
 }
 
 .MainList__edit-item-button:hover{
-   
-    border-color: #FF0038;
-    color: #FF0038;
-    filter:drop-shadow(0px 0px 8px #FF0038);
-  } 
+
+border-color: #FF0038;
+color: #FF0038;
+filter:drop-shadow(0px 0px 8px #FF0038);
+} 
 .MainList__edit-item-button:focus{
-     border-color: #FF0038;
-     color: #FF0038;
-     filter:drop-shadow(0px 0px 8px #FF0038);
-  } 
+border-color: #FF0038;
+color: #FF0038;
+filter:drop-shadow(0px 0px 8px #FF0038);
+} 
 
 h3.Item__name {
 font-size: 40px;
 }
-  .Item__date{
-      font-size: 15px;
-      color: gray;
-  }
-  .Item > button{
+.Item__date{
+font-size: 15px;
+color: gray;
+}
+.Item > button{
 cursor: pointer;
-  }
-  .item__delete{
+}
+.item__delete{
+font-size: 25px;
 cursor: pointer;
-  }
-  .item__delete:hover{
-color: #D3002E;
-filter:drop-shadow(0px 0px 8px #D3002E);
-      }
+width: 20px;
+
+}
+.item__delete:hover{
+border-color: #FF0038;
+color: #FF0038;
+filter:drop-shadow(0px 0px 8px #FF0038);
+}
 .item__delete:focus{
-color: #D3002E;
-filter:drop-shadow(0px 0px 8px #D3002E);
+border-color: #FF0038;
+color: #FF0038;
+filter:drop-shadow(0px 0px 8px #FF0038);
 }
-.item__calc{
+.remove-item{
+margin-top: 20px;
+padding: 7px;
+padding-right: 10px;
+padding-left: 10px;
+width: 20px;
 cursor: pointer;
+border-color: white;
+border-style: solid;
+border-radius: 30px;
 }
-.item__calc:hover{
+button.item__calc{
+padding: 0;
+width: 10px;
+margin: 10px;
+margin-right: 40px;
+}
+
+
+.put-back-item{
+margin-top: 20px;
+padding: 10px;
+width: 20px;
+
+cursor: pointer;
+border-color: 149BCC;
+border-style: solid;
+border-radius: 30px;
+border-style: solid;
 color: #3CACD5;
-filter:drop-shadow(0px 0px 8px #3CACD5);
+filter:drop-shadow(0px 0px 8px #149BCC);
 }
-.item__calc:focus{
-color: #3CACD5;
-filter:drop-shadow(0px 0px 8px #3CACD5);
-}
-  .put-back-item{
-    color: #3CACD5;
-    filter:drop-shadow(0px 0px 8px #149BCC);
-  }
 .item-cost-qty{
-    font-size: 30px;
-    display: flex;
-    justify-content: space-evenly;
+font-size: 30px;
+display: flex;
+justify-content: space-evenly;
 }
 .item-remove-delete{
-font-style: 30px;
+display: flex;
+justify-content: space-between;
 }
 .red {
 color: #D3002E;
 background-color: black;
 margin-bottom: 20px;
 }
-  @media (max-width: 700px) {
-    button.Item__expand-item-button{
-        font-size: 20px;
-    }
-    h3.Item__name {
-        font-size: 20px;
-        }
-    .Item__name{
-    font-size: 15px;
-    }
-    .Item{
-        margin:2px;
-    }
-    .Item-Header{
-    font-size: 10px;
-    }
+@media (max-width: 700px) {
+button.Item__expand-item-button{
+font-size: 20px;
+}
+h3.Item__name {
+
+font-size: 20px;
+}
+.Item__name{
+font-size: 15px;
+}
+.Item{
+margin:2px;
+}
+.Item-Header{
+font-size: 10px;
+}
 .Item__date-made{
 font-size: 12px;
 }
 .item-remove-delete{
-    margin-top: 10px;
+display: flex;
+justify-content: space-between;
+
+width: 100px;
 }
 .item-cost-qty{
 font-size: 15px;
 }
-    }
+}

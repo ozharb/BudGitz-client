@@ -83,7 +83,7 @@ tag={Link}
 to={`/delete-list/${listId}`}
 className='MainList__delete-list-button'
 >
-Delete BudGit
+<i className="fas fa-skull"><FontAwesomeIcon className='skull' icon='skull' /></i>
 </AppButton>
       </div>
      

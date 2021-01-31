@@ -7,9 +7,9 @@ import App from './App/App'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faCheckSquare, faPlus, faMinus, faCashRegister, faChevronRight, faChevronDown} from '@fortawesome/free-solid-svg-icons'
+import { faCheckSquare, faPlus, faMinus, faSkull, faCashRegister, faChevronRight, faChevronDown, faTimes} from '@fortawesome/free-solid-svg-icons'
 
-library.add(fab, faCheckSquare, faMinus, faPlus, faCashRegister, faChevronRight, faChevronDown)
+library.add(fab, faCheckSquare, faMinus, faPlus, faSkull, faTimes, faCashRegister, faChevronRight, faChevronDown)
 
 
 ReactDOM.render(

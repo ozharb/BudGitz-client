@@ -106,8 +106,8 @@ Edit
 :  null
 
 const calcButton = this.props.calc
-    ? <span className="remove-item">Remove</span>
-     : <span className="put-back-item">Put Back</span>
+    ? <span className="remove-item">in</span>
+     : <span className="put-back-item">out</span>
 
   const { name, price, quantity, date_made, calc } = this.props
   const date = toDate(date_made)
@@ -133,23 +133,21 @@ const calcButton = this.props.calc
            </div>
 
         <div className="item-remove-delete">
-     <button className = 'item__calc'
+    <div className="remove-button"> 
+    <button className = 'item__calc'
       type='radio' name = 'calc' 
       onClick={this.handleChangeCalc} 
       value = {calc}> 
-      
       {calcButton}
-      
       </button>
-
-      <button className='item__delete' 
+      </div>
+      <div className="delete-button">
+          <button className='item__delete' 
       type='button'
-      onClick={this.handleClickDelete}
-      > 
-         {/* <FontAwesomeIcon icon={faChevronRight}  />  */}
-    
-        Delete
+      onClick={this.handleClickDelete} > 
+       <i className="fas fa-times"><FontAwesomeIcon className='times' icon='times' /></i>
       </button>
+      </div>
      </div>
         </header>
         <div className="item-cost-qty">
