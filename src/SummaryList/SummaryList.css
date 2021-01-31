@@ -66,6 +66,7 @@ padding-bottom: 10px;
 
 .SummaryList{
 height: 100px;
+overflow: auto;
 }
 .items-scroll{
 margin-left: 20px;   
@@ -73,6 +74,7 @@ margin-left: 20px;
 
 }
 ul.items-scroll{
+    overflow: auto;
     font-size: 10px;
 margin-top: 5px;
 margin-left: 20px ;
