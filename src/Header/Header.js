@@ -16,7 +16,7 @@ export default class Header extends Component {
     this.setState({
       expand: !this.state.expand
     })
-  } 
+  }
   handleLogoutClick = () => {
     let username = 'user'
     TokenService.clearAuthToken()
@@ -40,15 +40,15 @@ export default class Header extends Component {
     return (
       <div className='Header__not-logged-in'>
         <div className="register">
-        <Link
-          to='/register'>
-          Register
+          <Link
+            to='/register'>
+            Register
         </Link>
         </div>
         <div className='logi-in'>
-        <Link
-          to='/login'>
-          Log in
+          <Link
+            to='/login'>
+            Log in
         </Link>
         </div>
       </div>
@@ -60,53 +60,53 @@ export default class Header extends Component {
   render() {
     const user = this.context.user
 
-    
-    const AccountDetails= this.state.expand
-    ? <UserInfo />
-    : null
 
-    const logLink = TokenService.hasAuthToken() 
-    ? null
-    : this.renderLoginLink()
+    const AccountDetails = this.state.expand
+      ? <UserInfo />
+      : null
 
-     
+    const logLink = TokenService.hasAuthToken()
+      ? null
+      : this.renderLoginLink()
+
+
     return (
 
       <nav className='Header'>
         <h1>
           <Link to='/lists'>
-               <i className="fas fa-cash-register"><FontAwesomeIcon className='logo' icon='cash-register' /></i>
+            <i className="fas fa-cash-register"><FontAwesomeIcon className='logo' icon='cash-register' /></i>
             {' '}
-            BudGitz 
+            BudGitz
           </Link>
         </h1>
-              
-            <div className='Header-user-info'>
-               <div className ="logout">
-                  <div>{logLink} </div>  
-               </div>
-              {TokenService.hasAuthToken() &&
-                <div className="user-profile"
-                tag={Link}
-                onClick={this.handleItemExpand}
-                >
-                  <div className="username">
-                    <div className = "user-profile-image">
 
-         <img src={`https://robohash.org/budgitz-${user}`} width= "40" className = "user-profile-img" alt="user-profile"/>
-                  </div>
+        <div className='Header-user-info'>
+          <div className="logout">
+            <div>{logLink} </div>
+          </div>
+          {TokenService.hasAuthToken() &&
+            <div className="user-profile"
+              tag={Link}
+              onClick={this.handleItemExpand}
+            >
+              <div className="username">
+                <div className="user-profile-image">
 
-                  <div>
-                 <button
-                 onClick={this.handleItemExpand}> {user} </button> 
-                 </div>
-                  {AccountDetails}
-                
-                  </div>
-             
-               </div>
-               }
-             </div>
+                  <img src={`https://robohash.org/budgitz-${user}`} width="40" className="user-profile-img" alt="user-profile" />
+                </div>
+
+                <div>
+                  <button
+                    onClick={this.handleItemExpand}> {user} </button>
+                </div>
+                {AccountDetails}
+
+              </div>
+
+            </div>
+          }
+        </div>
       </nav>
 
     )
