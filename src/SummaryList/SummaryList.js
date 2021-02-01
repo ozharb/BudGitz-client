@@ -23,8 +23,8 @@ export default class SummaryList extends React.Component {
         return (
             <div className="SummaryList">
                 <div className="Summary-Total">
-                    <h4>BudGit Total:</h4>
-                    <h3> ${summaryDisplay} </h3>
+                    <h3>BudGit Total:</h3>
+                    <h4> ${summaryDisplay} </h4>
                 </div>
                 <div className="Summary-Items">
                     Items in your BugGit Total:

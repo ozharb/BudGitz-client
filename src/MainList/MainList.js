@@ -80,6 +80,7 @@ export default class MainList extends React.Component {
               <AppButton
                 type='button'
                 tag={Link}
+                aria-label='delete list'
                 to={`/delete-list/${listId}`}
                 className='MainList__delete-list-button'
               >

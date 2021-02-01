@@ -22,10 +22,10 @@ justify-content: space-evenly;
 padding: 10px;
 }
 
-.Summary-Total > h4{
+.Summary-Total > h3{
 font-size: 15px;
 }
-.Summary-Total > h3{
+.Summary-Total > h4{
 font-size: 70px;
 margin: 0;
 color: rgb(0, 255, 115);
@@ -46,7 +46,7 @@ font-size: 30px;
 
 @media (max-width: 760px) {
 
-.Summary-Total > h3{
+.Summary-Total > h4{
 font-size: 30px;
 height: 80px;
 }
@@ -57,7 +57,7 @@ margin-left: 20px;
 .Summary-Total {
 padding: 0;
 }
-.Summary-Total > h4{
+.Summary-Total > h3{
 
 margin: 0;
 padding-bottom: 10px;

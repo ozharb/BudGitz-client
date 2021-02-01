@@ -118,6 +118,7 @@ const calcButton = this.props.calc
         <div className="item-name-expand">
             <button
           type='button'
+          aria-label= 'expand'
           onClick={this.handleItemExpand}
           className='Item__expand-item-button'>
           {expandItemButtonText}
@@ -135,7 +136,8 @@ const calcButton = this.props.calc
         <div className="item-remove-delete">
     <div className="remove-button"> 
     <button className = 'item__calc'
-      type='radio' name = 'calc' 
+      aria-label = 'check' 
+      type='radio' 
       onClick={this.handleChangeCalc} 
       value = {calc}> 
       {calcButton}
@@ -143,6 +145,7 @@ const calcButton = this.props.calc
       </div>
       <div className="delete-button">
           <button className='item__delete' 
+      aria-label = 'delete'
       type='button'
       onClick={this.handleClickDelete} > 
        <i className="fas fa-times"><FontAwesomeIcon className='times' icon='times' /></i>
