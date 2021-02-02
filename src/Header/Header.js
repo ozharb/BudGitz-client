@@ -5,7 +5,7 @@ import UserInfo from '../UserInfo/UserInfo'
 import TokenService from '../services/token-service'
 import './Header.css'
 import ApiContext from '../ApiContext'
-
+import { CSSTransition } from 'react-transition-group';
 
 export default class Header extends Component {
 
@@ -61,10 +61,6 @@ export default class Header extends Component {
     const user = this.context.user
 
 
-    const AccountDetails = this.state.expand
-      ? <UserInfo />
-      : null
-
     const logLink = TokenService.hasAuthToken()
       ? null
       : this.renderLoginLink()
@@ -92,16 +88,27 @@ export default class Header extends Component {
             >
               <div className="username">
                 <div className="user-profile-image">
-
                   <img src={`https://robohash.org/budgitz-${user}`} width="40" className="user-profile-img" alt="user-profile" />
                 </div>
 
                 <div>
                   <button
+                    className="profile-expand"
                     onClick={this.handleItemExpand}> {user} </button>
-                </div>
-                {AccountDetails}
 
+                </div>
+              </div>
+              <div className="user-menu">
+                <CSSTransition
+                  in={this.state.expand}
+                  timeout={350}
+                  classNames="display"
+                  unmountOnExit
+                >
+                  <div className="menu">
+                    <UserInfo />
+                  </div>
+                </CSSTransition>
               </div>
 
             </div>

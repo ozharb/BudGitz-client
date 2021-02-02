@@ -4,6 +4,7 @@ import './UserInfo.css'
 import ApiContext from '../ApiContext'
 import TokenService from '../services/token-service'
 
+
 class UserInfo extends Component {
   
 
@@ -46,18 +47,18 @@ render(){
   
 
   return (
-    <div className= "user-status">
+    <ul className="list">
         
-  <p>You have {lists.length} BudGit{lists.length===1?null:'z'}</p>
-  <p>Your Status:</p>
+  <li className="list-item">You have {lists.length} BudGit{lists.length===1?null:'z'}</li>
+  <li className="list-item">Your Status:</li>
 {this.userStatus(lists.length)}
-<Link
+<li className="list-item"><Link
 onClick={this.handleLogoutClick}
 to='/login'
 className = "logout">
 Logout
-</Link>
-   </div>
+</Link> </li>
+   </ul>
  
 
   )
