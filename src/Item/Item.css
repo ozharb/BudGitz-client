@@ -15,6 +15,7 @@ cursor: pointer;
 }
 
 button.Item__expand-item-button{
+cursor: pointer;
 font-size: 30px;
 }
 .MainList__edit-item-button{
