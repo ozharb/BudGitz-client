@@ -44,6 +44,9 @@ export default class RegistrationForm extends Component {
       password.type = "password";
     }
   }
+  componentDidMount(){
+    window.scrollTo(0, 0)
+  }
   render() {
     const { error } = this.state
     return (

@@ -1,18 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders the UI as expected 1`] = `
-<div
-  className="user-status"
+<ul
+  className="list"
 >
-  <p>
+  <li
+    className="list-item"
+  >
     You have 
     0
      BudGit
     z
-  </p>
-  <p>
+  </li>
+  <li
+    className="list-item"
+  >
     Your Status:
-  </p>
+  </li>
   <div>
     <h4>
       Lil BudGitter
@@ -25,12 +29,17 @@ exports[`renders the UI as expected 1`] = `
        to get to Legit status
     </p>
   </div>
-  <a
-    className="logout"
-    href="/login"
-    onClick={[Function]}
+  <li
+    className="list-item"
   >
-    Logout
-  </a>
-</div>
+    <a
+      className="logout"
+      href="/login"
+      onClick={[Function]}
+    >
+      Logout
+    </a>
+     
+  </li>
+</ul>
 `;

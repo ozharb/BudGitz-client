@@ -11,6 +11,7 @@ exports[`renders the UI as expected 1`] = `
       className="item-name-expand"
     >
       <button
+        aria-label="expand"
         className="Item__expand-item-button"
         onClick={[Function]}
         type="button"
@@ -34,8 +35,8 @@ exports[`renders the UI as expected 1`] = `
         className="remove-button"
       >
         <button
+          aria-label="check"
           className="item__calc"
-          name="calc"
           onClick={[Function]}
           type="radio"
         >
@@ -48,6 +49,7 @@ exports[`renders the UI as expected 1`] = `
         className="delete-button"
       >
         <button
+          aria-label="delete"
           className="item__delete"
           onClick={[Function]}
           type="button"

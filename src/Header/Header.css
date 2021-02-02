@@ -46,7 +46,6 @@ display: none;
 
 }
 .user-profile{
-/* margin-top: -10px; */
 display: flex;
 
 height: 100px;
@@ -82,7 +81,7 @@ text-align: center;
 --toggler-bg-color: #149BCC;
 --menu-starting-top: 93px;
 --menu-ending-top: 93px;
---menu-max-height: 200px;
+--menu-max-height: 220px;
 --menu-bg-color: rgb(27, 27, 27) ;
 --fade-from-color: rgb(27, 27, 27) ;
 --fade-to-color: white;
@@ -148,7 +147,6 @@ transition: all var(--timeout);
 
 .display-exit {
 top: var(--menu-ending-top);
-/* width: var(--menu-width); */
 max-height: var(--menu-max-height);
 color: var(--fade-to-color);
 background-color: var(--menu-bg-color);
@@ -156,7 +154,6 @@ background-color: var(--menu-bg-color);
 
 .display-exit-active {
 top: var(--menu-starting-top);
-/* width: var(--toggler-width); */
 max-height: 0 ;
 color: var(--fade-from-color);
 background-color: var(--toggler-bg-color);
