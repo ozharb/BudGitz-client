@@ -27,7 +27,7 @@ export default class SummaryList extends React.Component {
                     <h4> ${summaryDisplay} </h4>
                 </div>
                 <div className="Summary-Items">
-                    Items in your BugGit Total:
+                    Items in your BudGit Total:
 <ul className="items-scroll">
 
                         {listItems.map((item, i) =>

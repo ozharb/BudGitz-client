@@ -14,7 +14,7 @@ export default class AllLists extends React.Component {
     const { lists=[] } = this.context
     const noListsMessage = lists.length===0
     ? <div className="no-lists">
-      <h3>You have no BugGitz</h3>
+      <h3>You have no BudGitz</h3>
       <p> Make one<Link className="new-list-link" to='/add-list'>here</Link></p>
     </div>
     : null
@@ -31,7 +31,7 @@ export default class AllLists extends React.Component {
         >
           New
           <br />
-          BugGit
+          BudGit
           <br />
         </AppButton>
       </div>

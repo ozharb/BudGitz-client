@@ -200,6 +200,7 @@ class App extends Component {
                 {this.renderMainRoutes()}
 
               </main>
+           
             </ApiError>
           </div>
         </ApiContext.Provider>
