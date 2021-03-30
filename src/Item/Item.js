@@ -38,7 +38,6 @@ handleChangeCalc = e => {
           return res.json().then(error => Promise.reject(error))
         })
         .then(() => {
-          console.log(newItem)
            this.context.handleUpdate(newItem)
 
         })
