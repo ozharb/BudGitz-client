@@ -1,86 +1,80 @@
-.SummaryList{
-background: linear-gradient(black, rgb(27, 27, 27) );
-border-radius: 20px;
-border-width: 5px;
-border-style: solid;
-border-color: white;
-color: white;
-display: block;
-font-size: 12px;
-font-weight: bold;
-margin: 10px;
-padding-top: 15px;
-text-align: center;
-text-decoration: none;
+.SummaryList {
+  background: linear-gradient(black, rgb(27, 27, 27));
+  border-radius: 20px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: white;
+  color: white;
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 10px;
+  padding-top: 15px;
+  text-align: center;
+  text-decoration: none;
 
-padding-bottom: 20px;
-display: flex;
-justify-content: space-evenly;
-
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-evenly;
 }
-.Summary-Total{
-padding: 10px;
-}
-
-.Summary-Total > h3{
-font-size: 15px;
-}
-.Summary-Total > h4{
-font-size: 70px;
-margin: 0;
-color: rgb(0, 255, 115);
-filter:drop-shadow(0px 0px 8px rgb(0, 255, 115));
-
+.Summary-Total {
+  padding: 10px;
 }
 
-ul.items-scroll{
-font-size: 17px;
-color: rgb(0, 255, 115);
-filter:drop-shadow(0px 0px 3px rgb(0, 255, 115));
+.Summary-Total > h3 {
+  font-size: 15px;
 }
-.items-scroll{
-overflow: auto;
-width:100px;
-font-size: 30px;
+.Summary-Total > h4 {
+  font-size: 70px;
+  margin: 0;
+  color: rgb(0, 255, 115);
+  filter: drop-shadow(0px 0px 8px rgb(0, 255, 115));
+}
+
+ul.items-scroll {
+  font-size: 17px;
+  color: rgb(0, 255, 115);
+  filter: drop-shadow(0px 0px 3px rgb(0, 255, 115));
+}
+.items-scroll {
+  overflow: auto;
+  width: 100px;
+  font-size: 30px;
 }
 
 @media (max-width: 760px) {
+  .Summary-Total > h4 {
+    font-size: 20px;
+    height: 80px;
+  }
+  li.Summary-Items-List {
+    font-size: 10px;
+    margin-left: 20px;
+  }
+  .Summary-Total {
+    padding: 0;
+  }
+  .Summary-Total > h3 {
+    margin: 0;
+    padding-bottom: 10px;
+  }
 
-.Summary-Total > h4{
-font-size: 30px;
-height: 80px;
-}
-li.Summary-Items-List{
-font-size: 10px;
-margin-left: 20px;
-}
-.Summary-Total {
-padding: 0;
-}
-.Summary-Total > h3{
-
-margin: 0;
-padding-bottom: 10px;
-}
-
-
-.SummaryList{
-height: 100px;
-overflow: auto;
-}
-.items-scroll{
-margin-left: 20px;   
-
-
-}
-ul.items-scroll{
+  .SummaryList {
+    height: 100px;
+    overflow: auto;
+    font-size: 0.5em;
+  }
+  .items-scroll {
+    margin-left: 20px;
+  }
+  ul.items-scroll {
     overflow: auto;
     font-size: 10px;
-margin-top: 5px;
-margin-left: 20px ;
-margin-left: 30px;
-font-size: 10px;
-color: rgb(0, 255, 115);
-filter:drop-shadow(0px 0px 0px rgb(0, 255, 115));
-}
+    margin-top: 5px;
+    margin-left: 20px;
+    margin-left: 30px;
+    font-size: 10px;
+    color: rgb(0, 255, 115);
+    filter: drop-shadow(0px 0px 0px rgb(0, 255, 115));
+  }
 }

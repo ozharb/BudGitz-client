@@ -1,40 +1,45 @@
-
-
-.LandingPage{
-    text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=MuseoModerno:wght@200&display=swap");
+.LandingPage {
+  text-align: center;
+  font-family: "MuseoModerno", cursive;
 }
-.register-button{
-    margin: auto;
-    background-color:Transparent;
-    border-radius: 20px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: white;
-    color: white;
-    display: block;
-    font-size: 12px;
-    font-weight: bold;
-    height: 30px;
-    text-align: center;
-    text-decoration: none;
-    width: 90px;
+.register-button {
+  margin: auto;
+  background-color: Transparent;
+  border-radius: 20px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: white;
+  color: white;
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  height: 30px;
+  text-align: center;
+  text-decoration: none;
+  width: 90px;
+}
+.caption {
+  font-style: italic;
+}
+.register-button:hover {
+  cursor: pointer;
+  border-color: #3cacd5;
+  color: #3cacd5;
+  filter: drop-shadow(0px 0px 8px #3cacd5);
+}
+.register-button:focus {
+  border-color: #3cacd5;
+  color: #3cacd5;
 }
 
-.register-button:hover{
-    cursor: pointer;
-     border-color: #3CACD5;
-     color: #3CACD5;
-     filter:drop-shadow(0px 0px 8px #3CACD5);
-
-   } 
-   .register-button:focus{
-      border-color: #3CACD5;
-      color: #3CACD5;
-   } 
-
-.app-screenshot{
-margin-top: 30px;
-border-style: solid; 
-border-width: 2px;
-
+.app-screenshot {
+  margin-top: 30px;
+  border-style: solid;
+  border-color: #3cacd5;
+  border-width: 2px;
+  border-radius: 20px;
+}
+.emojis {
+  font-size: 3em;
 }

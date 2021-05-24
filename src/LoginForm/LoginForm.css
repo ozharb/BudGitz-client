@@ -1,35 +1,47 @@
-.green{
-    color:green;
-    font-weight: 300;
+.green {
+  color: green;
+  font-weight: 300;
 }
 
 .red {
-    color:red;
+  color: red;
+}
+.demo-now {
+  cursor: pointer;
+  letter-spacing: 0.3em;
+  text-align: center;
+}
+.demo {
+  color: #3cacd5;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: solid;
+
+  width: 200px;
+}
+.LoginForm {
+  height: 1400px;
 }
 
-.LoginForm{
-    height: 1400px;
+.LoginForm > button {
+  background-color: Transparent;
+  border-radius: 20px;
+
+  border-style: solid;
+  border-color: white;
+  color: white;
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  height: 70px;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+  width: 90px;
+  cursor: pointer;
 }
 
-.LoginForm > button{
-    background-color:Transparent;
-    border-radius: 20px;
-    
-    border-style: solid;
-    border-color: white;
-    color: white;
-    display: block;
-    font-size: 12px;
-    font-weight: bold;
-    height: 70px;
-    padding: 8px;
-    text-align: center;
-    text-decoration: none;
-    width: 90px;
-    cursor: pointer;
-}
-
-.LoginForm > button:hover{
-    border-color: #3CACD5;
-    color: #3CACD5;
+.LoginForm > button:hover {
+  border-color: #3cacd5;
+  color: #3cacd5;
 }
