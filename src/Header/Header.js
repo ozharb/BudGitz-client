@@ -112,7 +112,7 @@ export default class Header extends Component {
                     onClick={this.handleItemExpand}
                   >
                     {" "}
-                    {user}{" "}
+                    <span className="header-username">{user} </span>
                   </button>
                 </div>
               </div>

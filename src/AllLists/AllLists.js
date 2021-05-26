@@ -51,6 +51,9 @@ export default class AllLists extends React.Component {
             </li>
           ))}
         </ul>
+        <Link className="home-link" to="/">
+          Home
+        </Link>
       </div>
     );
   }

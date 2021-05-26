@@ -50,6 +50,9 @@ button {
   flex-direction: column;
   cursor: pointer;
 }
+.header-username {
+  font-family: "MuseoModerno", cursive;
+}
 
 .Header > h3 {
   font-size: 20px;

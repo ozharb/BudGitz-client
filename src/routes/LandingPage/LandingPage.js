@@ -87,6 +87,16 @@ export default class RegistrationPage extends Component {
           </Link>
           <h3>BudGitz Now, Buy Later</h3>
         </section>
+
+        <div className="github-link-container">
+          Additional information available on
+          <a
+            className="github-link"
+            href="https://github.com/ozharb/budgitz-client"
+          >
+            github
+          </a>
+        </div>
       </article>
     );
   }

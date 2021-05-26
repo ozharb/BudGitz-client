@@ -81,3 +81,15 @@ ul {
 .AllLists__list > li {
   margin-bottom: 30px;
 }
+.home-link {
+  position: relative;
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+  letter-spacing: 4px;
+  font-weight: 700;
+}
+.home-link:hover {
+  color: #3cacd5;
+  filter: drop-shadow(0px 0px 8px #149bcc);
+}
