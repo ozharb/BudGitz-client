@@ -14,7 +14,7 @@ export default class Header extends Component {
 
   handleItemExpand = (e) => {
     this.setState({
-      expand: true,
+      expand: !this.state.expand,
     });
   };
   menuRef = createRef();
