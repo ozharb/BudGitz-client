@@ -13,8 +13,8 @@ export default class Header extends Component {
   };
 
   handleItemExpand = (e) => {
-    this.setState(function (prevState, props) {
-      return { expand: !prevState.expand };
+    this.setState({
+      expand: !this.state.expand,
     });
   };
 
