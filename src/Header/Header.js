@@ -13,10 +13,11 @@ export default class Header extends Component {
   };
 
   handleItemExpand = (e) => {
-    this.setState({
-      expand: !this.state.expand,
+    this.setState(function (prevState, props) {
+      return { expand: !prevState.expand };
     });
   };
+
   menuRef = createRef();
 
   onOutsideClick = () => {
