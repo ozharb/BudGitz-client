@@ -48,7 +48,7 @@ export default class RegistrationPage extends Component {
           autoLoad={false}
         />
         <Section className="RegistrationPage">
-          ;<h2>Register</h2>
+          <h2>Register</h2>
           <RegistrationForm
             onRegistrationSuccess={this.handleRegistrationSuccess}
           />
