@@ -76,12 +76,11 @@ export default class RegistrationPage extends Component {
               className="app-screenshot main"
               alt="app-screesnshot-main"
             />
-            <h4>Add More BudGitz and watch your status go up!</h4>
+            <h4>Add More BudGitz and see your status go up</h4>
             <p className="emojis">☁️🚀</p>
             <p>
               Start out as a <b>Lil Budgitter</b>, add enough Budgitz and get to
-              coveted
-              <b>Legendary status</b>.
+              coveted <b>Legendary status</b>
             </p>
             <p className="emojis">🤑</p>
           </section>
