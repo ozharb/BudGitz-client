@@ -75,11 +75,11 @@ export default class Header extends Component {
     const user = this.context.user;
 
     const logLink = TokenService.hasAuthToken() ? null : this.renderLoginLink();
-
+    const logoLink = TokenService.hasAuthToken() ? "/lists" : "/";
     return (
       <nav className="Header">
         <h1>
-          <Link to="/lists">
+          <Link to={logoLink}>
             <i className="fas fa-cash-register">
               <FontAwesomeIcon className="logo" icon="cash-register" />
             </i>{" "}
