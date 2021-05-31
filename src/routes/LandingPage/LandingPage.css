@@ -62,3 +62,11 @@
   position: relative;
   bottom: 0px;
 }
+@media (max-width: 760px) {
+  .register-button:hover {
+    cursor: pointer;
+    border-color: #3cacd5;
+    color: #3cacd5;
+    filter: none;
+  }
+}
